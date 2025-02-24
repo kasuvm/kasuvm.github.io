@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo sobre HTML</title>
+    <style>
+        body {
+			
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 20px; 
+            background-color: #f4f4f4;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-weight: bold;
+            color: #253552;
+            margin-bottom: 20px;
+			margin-top: 55px
+        }
+
+        p {
+            font-weight: normal;
+            color: #2b2b2b;
+            width: 60%;
+            margin: 0 auto 20px auto; 
+        }
+
+        .gif-container {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .gif-container img {
+            width: 300px;
+            height: auto;
+        }
+		.gif-container-alt {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .gif-container-alt img {
+            width: 650px;
+            height: auto;
+			align-content:center;
+		
+        }
+		.video-container {
+            margin-top: 20px;
+			margin-bottom: 20px;
+        }
+
+        iframe {
+            width: 560px;
+            height: 315px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+		.header {
+            background-color: #d4caca;
+          display:flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+			left: 0;
+			right: 0;
+            width: 100%;
+            box-shadow: 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            height: 50px;
+			margin-left: 30px;
+        }
+
+        .icon-buttons {
+            display:block;
+            gap: 20px;
+        }
+
+        .icon-buttons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 50px;
+        }
+		.icon-buttons img {
+			height: 30px;
+			
+		}
+
+        .icon-buttons button:hover {
+            color: #ba282e;
+        }
+.search-bar {
+            display: flex;
+            align-items: center;
+            border: 0px ;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 300px;
+	margin-right: 30px;
+	
+        }
+
+        .search-bar input {
+            padding: 10px;
+            border-radius: 15px;
+            width: 200%;
+        }
+    </style>
+<style> 
+        .footer {
+            background-color: #ba282e;
+            text-align: center;
+			color: white;
+            padding: 20px;
+            font-size: 20px;
+            box-shadow: 0 rgba(0, 0, 0, 0.2);
+        }
+	
+        .subscription {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subscription input[type="email"] {
+            padding: 10px;
+            border: none;
+            border-radius: 0px;
+            width: 250px;
+        }
+
+        .subscription button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0px;
+            background-color: #253552;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .subscription button:hover {
+            background-color: #f0f0f0;
+        }
+		.footer hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 2px solid white;
+			font-size: 10px;
+        }
+	.language-selector {
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 11px;
+			margin: 12px;
+        }
+        function cambiarIdioma() {
+            let idioma = document.getElementById("language").value;
+            let url = window.location.href;
+            if (idioma === "auto") {
+                location.reload();
+                return;
+            }
+            let googleTranslateElement = document.createElement("script");
+            googleTranslateElement.type = "text/javascript";
+            googleTranslateElement.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateInit";
+            document.body.appendChild(googleTranslateElement);
+
+            window.googleTranslateInit = function () {
+                new google.translate.TranslateElement(
+                    { pageLanguage: "es", includedLanguages: idioma },
+                    "google_translate_element"
+                );
+            };
+        }
+	.button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            background-color: #ba282e;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+			font-family: 'Poppins', sans-serif;
+            text-align:left;
+            margin: 0px;
+        }
+
+        .button-container button:hover {
+            background-color: #8a1e22;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+        <div class="logo">
+            <img src="A8_MFAS-KAB/Screenshot_2025-02-15_at_8.07.44_p.m.-removebg-preview.png" alt="Logo">
+        </div>
+        <div class="icon-buttons">
+            <button><img alt="" src="A8_MFAS-KAB/25694.png"><i class="fas fa-home"></i></button>
+            <button><img alt="" src="A8_MFAS-KAB/2510.png"><i class="fas fa-information"></i></button>
+            <button><img alt="" src="A8_MFAS-KAB/pngimg.com - envelope_PNG18382.png"><i class="fas fa-envelope"></i></button>
+            <button><img alt="" src="A8_MFAS-KAB/black-paper-clip-icon-5.png"><i class="fas fa-paperclip"></i></button>
+            <button> <img alt="" src="A8_MFAS-KAB/Exclamation_mark.png"><i class="fas fa-exclamation"></i></button>
+  </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+        </div>
+    </header>
+	&nbsp;
+<h1>
+	HTML: Una travesía.</h1>
+    <p>Hannah, una joven emprendedora, siempre soñó con tener su propia tienda de regalos. Para ella cada regalo era más que un simple objeto por comprar, representaba los momentos inolvidables que crea un detalle.</p>
+    <div class="gif-container">
+      <p> <img alt="" src="A8_MFAS-KAB/d53be10490a735a4d619de980330a841.gif"> </p>
+    </div>
+<p>Cuando decidió evolucionar su negocio y convertirlo al mundo digital, se sintió intimidada, pues no tenía conocimientos de programación y tan solo pensar en el mundo de los códigos le parecía catastrófico.&nbsp;</p>
+	<p>Sin embargo, su ambición por impulsar su negocio provocó que investigara más a fondo de cómo funcionan las páginas web. 
+Mientras navegaba en internet, se preguntaba cómo es que estas páginas funcionaban si eran una herramienta tan cotidiana.</p>
+<div class= "gif-container" >
+      <p> <img alt="" src= "A8_MFAS-KAB/8d621f66f551b6a39072473d52280ff0.gif" > </p>
+    </div>
+<p> Entoces descubrió HTML, el lenguaje que da vida al internet.</p>
+	<p>Necesita  códigos simples pero específicos, y gracias a éstos puedes estructurar y organizar tu tienda en un verdadero sitio web. &nbsp;Ella deseaba algo limpio, intuitivo y llamativo para crear una experiencia placentera para sus clientes desde el momento que ingresaran a su página. Así que decidió investigar desde lo más simple:</p>
+	<div class="video-container">
+      <iframe src="https://www.youtube.com/embed/10GHKjgQIR0" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+<p> Después de haber comprendido el concepto de HTML, se dipuso a investigar sus prinicpios y etiquetas para iniciar a esquematizar el concepto de su página web:</p>
+	<div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/Ch1GG4xM8nw" 
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+<p> Después de arduo trabajo e investigación, su tienda en línea al fin comenzaba a tomar forma, tal y como lo había imaginado. &nbsp;
+	Emocionada, Hanna siguió explorando. A través de gráficos y ejemplos prácticos, aprendió a agregar imágenes de sus productos, botones de compra y formularios para personalizar los pedidos. Poco a poco, su sueño dejó de ser solo una idea y se convirtió en una realidad.</p>
+<div class= "gif-container-alt" >
+      <p> <img alt="" src= "A8_MFAS-KAB/live-refresh.gif" ></p>
+    </div>
+<p>Después de semanas de aprendizaje y dedicación, su negocio, Suavecitos, finalmente estaba en línea. Ahora, cada regalo que vendía no solo llevaba amor y significado, sino también un pedacito del código que ella misma había escrito con pasión.</p>
+	<p>&nbsp;Porque, al igual que los regalos, cada página web cuenta una historia. Y Hanna estaba lista para compartir la suya con el mundo.</p>
+	<div class="footer">
+		<p> <strong><font color="#FFFFFF">SUSCRÍBETE A NUESTRO NEWSLETTER</font></strong></p>
+    <div class="subscription">
+            <input type="email" placeholder="Email">
+            <button>Suscribirme</button>
+        </div>
+	  <hr> 
+		<div class="language-selector">
+			<label for="language"><font size="3">Idioma</font></label>
+      <select id="language" onchange="cambiarIdioma()">
+          <option value="auto">Español (Original)</option>
+            <option value="en">Inglés</option>
+            <option value="fr">Francés</option>
+            <option value="de">Alemán</option>
+            <option value="it">Italiano</option>
+              <option value="pt">Portugués</option>
+      </select>
+			<div class="button-container">
+				<font size="1">
+        <button>Inicio</button>
+        <button>Temas</button>
+        <button>Recursos</button>
+        <button>Comunidad</button>
+        <button>Ayuda</button>
+				</font>
+    </div>
+			<div class="button-container">
+				<font size="1">
+        <button><strong>Términos y Condiciones</strong></button>
+        <p></p><button>Privacidad y Políticas</button>
+				</font></div>
+	<div class="icon-buttons">
+	  <img alt="" height="450px">
+            <button><img alt="" src="A8_MFAS-KAB/facebook-new.png"><i class="fas fa-facebook"></i></button>
+            <button><img alt="" src="A8_MFAS-KAB/twitter-new-logo-twitter-icons-new-twitter-logo-x-2023-x-social-media-icon-free-png.webp"><i class="fas fa-twitter"></i></button>
+			</div>
+		  <p><font size="2"><font color="#FFFFFF">UVM Universidad del Valle de México, S.C.</font></font></p>
+			<p><font size="2"><font color="#FFFFFF">Av. Marina Nacional 180, Anáhuac 1 sección,
+Delegación Miguel Hidalgo, Ciudad de
+			México, C.P. 11320.</font></font></p>
+<p>&nbsp;</p>
+            <p><font color="#FFFFFF"><font size="5">Universidad del Valle de México © 2025 - Todos los derechos reservados.</font></font></p>
+      </div>
+    <div id="google_translate_element"></div>
+	</div>
+	</body>
+</html>
